@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<title>Custom Upload Buttom</title>
+		<style type="text/css">
+			body {
+			    margin: 25px
+			}
+
+			.input-container {
+			    padding: 0 10px;
+			    margin: 19px 0;
+			    height: 30px;
+			    width: 220px;
+			    line-height: 25px;
+			    position: relative;
+			    overflow: hidden;
+			    cursor: pointer;
+			    
+			    background-color: #fff;
+			    border: 1px solid #adadad;
+			    -webkit-border-radius: 5px;
+			    
+			    border-radius: 5px;
+			    -webkit-box-shadow: 0 0 4px rgba(158,158,158,0.75), inset 0 0 6px #b3b3b3;
+			    -moz-box-shadow: 0 0 4px rgba(158,158,158,0.75), inset 0 0 6px #b3b3b3;
+			    box-shadow: 0 0 4px rgba(158,158,158,0.75), inset 0 0 6px #b3b3b3;
+
+			}
+
+			.file-name {
+			    font: 12px/30px arial;
+			    color: #666;
+			    overflow: hidden
+			}
+
+			.input-button {
+			    border: 0;
+			    border-left: 1px solid #ddd;
+			    padding: 0 10px;
+			    background-color: #111;
+			    color: #666;
+			    border-radius: 0 5px 5px 0;
+			    font: bold 12px arial;
+			    height: 30px;
+			    position: absolute;
+			    right: 0;
+			    top: 0;
+			    
+			    text-shadow: 1px 1px 0px #ffffff;
+			    
+			background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 50%, #d7dee3 51%, #f5f7f9 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(50%,#e5ebee), color-stop(51%,#d7dee3), color-stop(100%,#f5f7f9));
+			background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+			background: -o-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+			background: -ms-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+			background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
+
+			}
+
+			.input-container:hover .input-button {
+			    
+			    color: #777;
+			    background: #fffcfc;
+			background: -moz-linear-gradient(top,  #fffcfc 0%, #eaeff2 50%, #dee5ea 51%, #eeeeee 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fffcfc), color-stop(50%,#eaeff2), color-stop(51%,#dee5ea), color-stop(100%,#eeeeee));
+			background: -webkit-linear-gradient(top,  #fffcfc 0%,#eaeff2 50%,#dee5ea 51%,#eeeeee 100%);
+			background: -o-linear-gradient(top,  #fffcfc 0%,#eaeff2 50%,#dee5ea 51%,#eeeeee 100%);
+			background: -ms-linear-gradient(top,  #fffcfc 0%,#eaeff2 50%,#dee5ea 51%,#eeeeee 100%);
+			background: linear-gradient(to bottom,  #fffcfc 0%,#eaeff2 50%,#dee5ea 51%,#eeeeee 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffcfc', endColorstr='#eeeeee',GradientType=0 );
+
+			}
+			.customFile {
+			    border: 1px solid orange;
+			    cursor: pointer;
+			    height: 30px;
+			    position: absolute;
+			    opacity: 0;
+			    filter: alpha(opacity=0)
+			}
+		</style>
+	</head>
+	<body>
+		<input type="file" name="file" class="customFile" />
+		<input type="file" name="fefe" class="customFile" />
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="custom-upload.js"></script>
+		<script type="text/javascript">
+			$(".customFile").customUploadButton({placeholder: 'Selecione um arquivo'});
+		</script>
+
+	</body>
+</html>
