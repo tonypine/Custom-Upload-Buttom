@@ -4,35 +4,34 @@
     return $.fn.customUploadButton = function(settings) {
       var options;
       options = $.extend({
-        placeholder: "Nenhum arquivo selecionado"
+        placeholder: "Nenhum arquivo selecionado",
+        name: 'fileupload'
       }, settings);
       return this.each(function() {
-        var container, fileName, input, inputButton, op, pl, pr;
-        container = $("<div>").attr("class", "input-wrapper");
-        fileName = $("<div>").attr("class", "file-name").text(options.placeholder);
-        inputButton = $("<input>").attr("class", "input-button").attr("type", "button").val("Upload");
-        input = $(this);
-        input.data(options).addClass('file-upload');
-        op = input.data();
-        container.insertAfter(input).append(fileName).append(inputButton).append(input);
-        pl = parseInt(container.css("paddingLeft"));
-        pr = parseInt(container.css("paddingRight"));
-        fileName.css({
-          width: op.width - pl - pr - inputButton.width(),
-          height: op.height,
-          overflow: "hidden"
+        var button, fileInput, op;
+        button = $(this);
+        button.data(options).addClass('file-button').css({
+          position: 'relative',
+          overflow: 'hidden'
         });
-        input.change(function() {
-          return $(this).prev(".file-name").text($(this).val() === '' ? $(this).data('placeholder') : $(this).val());
+        op = button.data();
+        fileInput = $("<input>").attr({
+          "class": "input-file",
+          type: "file",
+          name: op.name
+        }).css({
+          position: 'absolute',
+          opacity: 0,
+          cursor: 'pointer'
         });
-        return container.bind("mousemove", function(e) {
+        return button.bind("mousemove", function(e) {
           var fileUpload;
-          fileUpload = $(this).find('.file-upload');
+          fileUpload = $(this).find('.input-file');
           return fileUpload.css({
-            left: e.pageX - $(this).position().left - fileUpload.width() + 10,
-            top: e.pageY - $(this).position().top - 30
+            left: e.pageX - $(this).offset().left - fileUpload.width() + 10,
+            top: e.pageY - $(this).offset().top - 11
           });
-        });
+        }).append(fileInput);
       });
     };
   })(jQuery);
